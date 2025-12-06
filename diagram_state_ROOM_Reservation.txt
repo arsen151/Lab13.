@@ -1,0 +1,14 @@
+@startuml
+[*] --> Idle
+
+Idle --> RoomSelected : выбор номера
+
+RoomSelected --> BookingConfirmed : подтвердить бронирование
+RoomSelected --> BookingCancelled : отмена
+
+BookingConfirmed --> Paid : оплата
+BookingConfirmed --> BookingCancelled : отмена
+
+Paid --> [*] : завершение бронирования
+BookingCancelled --> [*]
+@enduml
