@@ -1,0 +1,33 @@
+@startuml
+left to right direction
+skinparam actorStyle awesome
+
+actor "Студент" as Student
+actor "Преподаватель" as Teacher
+actor "Администратор" as Admin
+
+Teacher --|> Student
+Admin --|> Student
+
+rectangle "Система онлайн-курсов" {
+
+  Student -- (Регистрация и авторизация)
+  Student -- (Просмотр курсов)
+  Student -- (Запись на курс)
+  Student -- (Прохождение тестов)
+  Student -- (Оставить отзыв)
+
+  (Регистрация и авторизация) .> (Подтверждение почты) : <<include>>
+
+  Teacher -- (Создание курсов)
+  Teacher -- (Редактирование курсов)
+  Teacher -- (Добавление материалов)
+  Teacher -- (Создание тестов)
+  Teacher -- (Модерация отзывов)
+  Teacher -- (Просмотр успеваемости)
+
+  Admin -- (Управление учетными записями)
+  Admin -- (Управление категориями)
+  Admin -- (Просмотр аналитики)
+}
+@enduml
