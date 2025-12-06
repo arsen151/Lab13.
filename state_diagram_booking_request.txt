@@ -1,0 +1,13 @@
+@startuml
+[*] --> Created : заявка создана
+
+Created --> WaitingForPayment : отправлена клиенту
+
+WaitingForPayment --> Paid : клиент оплатил
+WaitingForPayment --> Cancelled : истек срок оплаты
+
+Paid --> Confirmed : бронирование подтверждено
+
+Cancelled --> [*]
+Confirmed --> [*]
+@enduml
